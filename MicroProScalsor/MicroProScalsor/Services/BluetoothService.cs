@@ -51,7 +51,29 @@ namespace MicroProScalsor.Services
         /// </summary>
         public void Connect()
         {
+
             _device.Connect().Subscribe();
+            _device.WhenServiceDiscovered().Subscribe((service) =>
+            {
+                var uuid = service.Uuid.ToString();
+
+                if (uuid.Equals(value: "6e400001-b5a3-f393-e0a9-e50e24dcca9e"))
+                {
+                    service.WhenCharacteristicDiscovered().Subscribe((characteristic) =>
+                    {
+                        var chass = characteristic;
+
+                        if (characteristic.Uuid.Equals("6e400003-b5a3-f393-e0a9-e50e24dcca9e"))
+                        {
+
+                            characteristic.Read().Subscribe((data) =>
+                            {
+                                var res = data;
+                            });
+                        }
+                    });
+                }
+            });
         }
 
         /// <summary>
@@ -59,7 +81,7 @@ namespace MicroProScalsor.Services
         /// </summary>
         public void Scan()
         {
-            CrossBleAdapter.Current.ScanInterval(new TimeSpan(0, 0, 5));
+            CrossBleAdapter.Current.ScanInterval(new TimeSpan(0, 0, 30));
             CrossBleAdapter.Current.Scan().Subscribe(result =>
             {
                 if (_device == null && result.Device.NativeDevice.ToString().Equals(Constants.defaultBluetoothMac))

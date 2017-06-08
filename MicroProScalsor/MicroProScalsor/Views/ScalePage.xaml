@@ -5,7 +5,18 @@
              Title="Scale">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="ScalePage"/>
+            <StackLayout Padding="0"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center">
+                <Image HorizontalOptions="Center"
+                   Source="{Binding ShoePiece1Status}"/>
+                <Image HorizontalOptions="Center"
+                   Source="{Binding ShoePiece2Status}"/>
+                <Image HorizontalOptions="Center"
+                   Source="{Binding ShoePiece3Status}"/>
+                <Image HorizontalOptions="Center"
+                   Source="{Binding ShoePiece4Status}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -4,8 +4,13 @@
              x:Class="MicroProScalsor.Views.AboutPage"
              Title="About">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="About Page"/>
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Label Text="Joe Durand"/>
+            <Label Text="Ben Yee"/>
+            <Label Text="CPE329 Final Project"/>
+            <Label Text="Cal Poly, San Luis Obispo"/>
+            <Label Text="Spring 2017"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

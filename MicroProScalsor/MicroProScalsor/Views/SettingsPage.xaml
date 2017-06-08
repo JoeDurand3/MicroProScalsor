@@ -24,6 +24,9 @@
                 <Button Command="{Binding ConnectCommand}"
                         Text="Connect"
                         IsEnabled="{Binding ConnectionPossible}"/>
+                <Button Command="{Binding ScanCommand}"
+                        Text="Scan"
+                        IsEnabled="{Binding ScanPossible}"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
